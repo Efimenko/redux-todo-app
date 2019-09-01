@@ -9,8 +9,10 @@ const List = ({items, dispatch}) => {
   return items ? (
     <ul>
       {items.map(item => <li key={item.id}>
-        <input type="checkbox" checked={item.isComplete} onChange={event => toggleComplete(item.id, event.target.checked)} />
-        {item.value}
+        <input id={item.id} type="checkbox" checked={item.isComplete} onChange={event => toggleComplete(item.id, event.target.checked)} />
+        <label htmlFor={item.id}>
+          {item.value}
+        </label>
       </li>)}
     </ul>
   ) : null
