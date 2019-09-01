@@ -10,7 +10,7 @@ const List = ({items, dispatch}) => {
     <ul>
       {items.map(item => <li key={item.id}>
         <input id={item.id} type="checkbox" checked={item.isComplete} onChange={event => toggleComplete(item.id, event.target.checked)} />
-        <label htmlFor={item.id}>
+        <label htmlFor={item.id} style={{textDecoration: item.isComplete ? 'line-through' : 'none'}}>
           {item.value}
         </label>
       </li>)}
