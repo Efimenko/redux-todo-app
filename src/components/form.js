@@ -17,6 +17,7 @@ const Form = ({dispatch}) => {
         value={value}
         placeholder="Add your task"
         onChange={event => setValue(event.target.value)}
+        required
       />
       <button type="submit">Add</button>
     </form>
