@@ -12,6 +12,11 @@ export default (state = {}, action) => {
             : item
         })
       };
+    case "DELETE_ITEM":
+      return {
+        ...state,
+        items: state.items.filter(item => item.id !== action.payload)
+      }
     default:
       return state;
   }

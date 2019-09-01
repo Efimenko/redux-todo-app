@@ -6,6 +6,10 @@ const List = ({items, dispatch}) => {
     dispatch({type: 'TOGGLE_ITEM', payload: {id, isComplete}})
   }
 
+  const deleteItem = id => {
+    dispatch({type: 'DELETE_ITEM', payload: id})
+  }
+
   return items ? (
     <ul>
       {items.map(item => <li key={item.id}>
@@ -13,6 +17,7 @@ const List = ({items, dispatch}) => {
         <label htmlFor={item.id} style={{textDecoration: item.isComplete ? 'line-through' : 'none'}}>
           {item.value}
         </label>
+        <button type="button" title="Remove item" onClick={() => deleteItem(item.id)}>X</button>
       </li>)}
     </ul>
   ) : null
