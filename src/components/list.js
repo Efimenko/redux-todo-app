@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import Item from './item'
 
 const List = ({items, dispatch}) => {
   const toggleComplete = (id, isComplete) => {
@@ -12,13 +13,7 @@ const List = ({items, dispatch}) => {
 
   return items ? (
     <ul>
-      {items.map(item => <li key={item.id}>
-        <input id={item.id} type="checkbox" checked={item.isComplete} onChange={event => toggleComplete(item.id, event.target.checked)} />
-        <label htmlFor={item.id} style={{textDecoration: item.isComplete ? 'line-through' : 'none'}}>
-          {item.value}
-        </label>
-        <button type="button" title="Remove item" onClick={() => deleteItem(item.id)}>X</button>
-      </li>)}
+      {items.map(item => <Item toggleComplete={toggleComplete} deleteItem={deleteItem} {...item}/>)}
     </ul>
   ) : null
 }
