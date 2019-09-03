@@ -17,6 +17,8 @@ export default (state = {}, action) => {
         ...state,
         items: state.items.filter(item => item.id !== action.payload)
       }
+    case "CHANGE_FILTER":
+      return {...state, activeFilter: action.payload}
     default:
       return state;
   }
