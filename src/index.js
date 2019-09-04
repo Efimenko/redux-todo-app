@@ -8,7 +8,7 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-const initialState = {items: [], activeFilter: FILTERS.filterAll}
+const initialState = {items: [], activeFilter: FILTERS.all}
 const store = createStore(reducer, initialState);
 
 ReactDOM.render(

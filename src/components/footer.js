@@ -6,9 +6,9 @@ const Footer = () => (
   <form>
     <fieldset>
       <legend>Filter</legend>
-      <FilterItem filter={FILTERS.filterAll}>All</FilterItem>
-      <FilterItem filter={FILTERS.filterCompleted}>Completed</FilterItem>
-      <FilterItem filter={FILTERS.filterUncompleted}>Uncompleted</FilterItem>
+      <FilterItem filter={FILTERS.all}>All</FilterItem>
+      <FilterItem filter={FILTERS.completed}>Completed</FilterItem>
+      <FilterItem filter={FILTERS.uncompleted}>Uncompleted</FilterItem>
     </fieldset>
   </form>
 )

@@ -9,8 +9,8 @@ const FilterItem = ({filter, children, activeFilter, dispatch}) => {
   }
   return (
     <React.Fragment>
-      <label htmlFor={filter}>{children}</label>
       <input type="radio" name="filter" id={filter} onChange={onChange} checked={filter === activeFilter}/>
+      <label htmlFor={filter}>{children}</label>
     </React.Fragment>
   )
 }
