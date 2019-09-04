@@ -1,15 +1,16 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import Item from './item'
-import {FILTERS, TOGGLE_ITEM, DELETE_ITEM} from '../constants'
+import {FILTERS} from '../constants'
+import {toggleComplete, deleteItem} from '../actions'
 
 const List = ({items, activeFilter, dispatch}) => {
-  const toggleComplete = (id, isComplete) => {
-    dispatch({type: TOGGLE_ITEM, payload: {id, isComplete}})
+  const toggleCompleteHandler = (id, isComplete) => {
+    dispatch(toggleComplete({id, isComplete}))
   }
 
-  const deleteItem = id => {
-    dispatch({type: DELETE_ITEM, payload: id})
+  const deleteItemHandler = id => {
+    dispatch(deleteItem({id}))
   }
 
   const getFilteredItems = () => {
@@ -27,7 +28,7 @@ const List = ({items, activeFilter, dispatch}) => {
 
   return items ? (
     <ul>
-      {getFilteredItems().map(item => <Item toggleComplete={toggleComplete} deleteItem={deleteItem} {...item}/>)}
+      {getFilteredItems().map(item => <Item toggleComplete={toggleCompleteHandler} deleteItem={deleteItemHandler} {...item}/>)}
     </ul>
   ) : null
 }
