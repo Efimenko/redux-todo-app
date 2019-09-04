@@ -1,15 +1,15 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import Item from './item'
-import {FILTERS} from '../constants'
+import {FILTERS, TOGGLE_ITEM, DELETE_ITEM} from '../constants'
 
 const List = ({items, activeFilter, dispatch}) => {
   const toggleComplete = (id, isComplete) => {
-    dispatch({type: 'TOGGLE_ITEM', payload: {id, isComplete}})
+    dispatch({type: TOGGLE_ITEM, payload: {id, isComplete}})
   }
 
   const deleteItem = id => {
-    dispatch({type: 'DELETE_ITEM', payload: id})
+    dispatch({type: DELETE_ITEM, payload: id})
   }
 
   const getFilteredItems = () => {

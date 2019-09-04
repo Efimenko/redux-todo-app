@@ -1,10 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {CHANGE_FILTER} from '../constants'
 
 const FilterItem = ({filter, children, activeFilter, dispatch}) => {
   const onChange = ({target: {checked}}) => {
     if (checked) {
-      dispatch({type: 'CHANGE_FILTER', payload: filter})
+      dispatch({type: CHANGE_FILTER, payload: filter})
     }
   }
   return (

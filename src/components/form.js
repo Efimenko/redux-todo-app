@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import {connect} from 'react-redux'
+import {ADD_ITEM} from '../constants'
 
 const Form = ({dispatch}) => {
   const [value, setValue] = useState("");
 
   const onSubmit = (event) => {
     event.preventDefault()
-    dispatch({type: 'ADD_ITEM', payload: {id: Date.now(), value, isComplete: false}})
+    dispatch({type: ADD_ITEM, payload: {id: Date.now(), value, isComplete: false}})
     setValue('')
   }
 

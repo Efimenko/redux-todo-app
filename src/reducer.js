@@ -1,9 +1,11 @@
+import {ADD_ITEM, TOGGLE_ITEM, DELETE_ITEM, CHANGE_FILTER} from './constants'
+
 export default (state = {}, action) => {
   console.log({state})
   switch (action.type) {
-    case "ADD_ITEM":
+    case ADD_ITEM:
       return { ...state, items: [...(state.items || []), action.payload] };
-    case "TOGGLE_ITEM":
+    case TOGGLE_ITEM:
       return {
         ...state,
         items: state.items.map(item => {
@@ -12,12 +14,12 @@ export default (state = {}, action) => {
             : item
         })
       };
-    case "DELETE_ITEM":
+    case DELETE_ITEM:
       return {
         ...state,
         items: state.items.filter(item => item.id !== action.payload)
       }
-    case "CHANGE_FILTER":
+    case CHANGE_FILTER:
       return {...state, activeFilter: action.payload}
     default:
       return state;
